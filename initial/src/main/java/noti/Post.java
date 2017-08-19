@@ -143,7 +143,7 @@ public class Post {
     }
 
     public void setPublishedTime(Date publishedTime) {
-        this.publishedTime = publishedTime;
+        this.publishedTime = new Date();
     }
 
     public Date getUpdatedTime() {
@@ -151,7 +151,7 @@ public class Post {
     }
 
     public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = updatedTime;
+        this.updatedTime = new Date();
     }
 
 
