@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,6 +15,25 @@ public class Post {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        if (replies == null) {
+            this.replies = new ArrayList<>();
+        }
+        this.replies = replies;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
 //    {
@@ -44,6 +64,7 @@ public class Post {
         private String userId;
         private String userName;
         private String timestamp;
+
 
         public String getUserId() {
             return userId;
@@ -89,13 +110,16 @@ public class Post {
     @Id private String id;
 
     private String courseId;
-    private List<String> tags;
+    private String courseName;
+    private List<String> tags = new ArrayList<>();
     private String subject;
     private String content;
     private String userId;
     private String userName;
     private String publishedTime;
     private String updatedTime;
+    private List<Reply> replies = new ArrayList<>();
+
 
     public String getCourseId() {
 	return courseId;
