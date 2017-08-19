@@ -3,6 +3,7 @@ package noti;
 import org.springframework.data.annotation.Id;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class Post {
         private String content;
         private String userId;
         private String userName;
-        private Date timestamp;
+        private String timestamp;
 
         public String getUserId() {
             return userId;
@@ -76,12 +77,12 @@ public class Post {
             this.userName = userName;
         }
 
-        public Date getTimestamp() {
+        public String getTimestamp() {
             return timestamp;
         }
 
         public void setTimestamp(Date timestamp) {
-            this.timestamp = timestamp;
+            this.timestamp = this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());;
         }
     }
 
@@ -93,8 +94,8 @@ public class Post {
     private String content;
     private String userId;
     private String userName;
-    private Date publishedTime;
-    private Date updatedTime;
+    private String publishedTime;
+    private String updatedTime;
 
     public String getCourseId() {
 	return courseId;
@@ -138,20 +139,21 @@ public class Post {
         this.content = content;
     }
 
-    public Date getPublishedTime() {
+    public String getPublishedTime() {
         return publishedTime;
     }
 
-    public void setPublishedTime(Date publishedTime) {
-        this.publishedTime = new Date();
+    public void setPublishedTime(String publishedTime) {
+
+        this.publishedTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
-    public Date getUpdatedTime() {
+    public String getUpdatedTime() {
         return updatedTime;
     }
 
     public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = new Date();
+        this.updatedTime = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
     }
 
 
